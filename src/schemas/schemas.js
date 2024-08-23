@@ -38,16 +38,20 @@ const bookSchema = new mongoose.Schema({
   },
 });
 
-const EstudianteSchema = new mongoose.Schema({
-  canet: {
+const alumnosSchema = new mongoose.Schema({
+  Canet: {
     type: String,
     required: true,
   },
-  estudiante: {
-    type: Number,
+  Estudiante: {
+    type: String,
     required: true,
   },
-  seccion: {
+  Email: {
+    type: String,
+    require: true,
+  },
+  Seccion: {
     type: String,
     require: true,
   },
@@ -56,5 +60,5 @@ const EstudianteSchema = new mongoose.Schema({
 module.exports = {
   authorSchema,
   bookSchema,
-  EstudianteSchema,
+  alumnosSchema,
 };
