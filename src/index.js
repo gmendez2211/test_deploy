@@ -75,7 +75,7 @@ app.get("/estudiantes/:Carnet", cors(), async (req, res) => {
 });
 
 //GET Lista todo los estuddiantes
-app.get("/estudiantes", async (req, res) => {
+app.get("/estudiantes", cors(), async (req, res) => {
   try {
     const Alumnos = await estudianteModel.find({});
     return res.json({ Alumnos });
