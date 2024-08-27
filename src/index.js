@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+var cors = require("cors");
+
 //const uri = "mongodb://localhost:27017/test";
 const uri =
   "mongodb+srv://pruebasprobyteg:AiVeYwcdlOwEj3xN@cluster0.st4ba.mongodb.net/dbAlumnos?retryWrites=true&w=majority&appName=Cluster0";
@@ -12,6 +14,8 @@ const port = process.env.PORT || 9000;
 //app.listen(port, () => console.log("Escuchando en el puerto ", port));
 
 app.use(express.json());
+
+app.options("*", cors()); // include before other routess
 
 app.get("/", (req, res) => {
   res.send("Hello world!");
@@ -59,7 +63,7 @@ app.get("/authors", async (req, res) => {
 });
 */
 //GET Estudiantes por carnet
-app.get("/estudiantes/:Carnet", async (req, res) => {
+app.get("/estudiantes/:Carnet", cors(), async (req, res) => {
   const sCarnet = req.params.Carnet;
   try {
     const Alumnos = await estudianteModel.find({ Carnet: sCarnet });
