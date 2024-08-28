@@ -67,7 +67,7 @@ app.get("/estudiantes/:Carnet", cors(), async (req, res) => {
   const sCarnet = req.params.Carnet;
   try {
     const Alumnos = await estudianteModel.find({ Carnet: sCarnet });
-    return res.json({ Alumnos });
+    return res.json(Alumnos);
   } catch (error) {
     console.log("Error", error);
     return res.status(500).json({ message: "Internal server error" });
@@ -78,7 +78,7 @@ app.get("/estudiantes/:Carnet", cors(), async (req, res) => {
 app.get("/estudiantes", cors(), async (req, res) => {
   try {
     const Alumnos = await estudianteModel.find({});
-    return res.json({ Alumnos });
+    return res.json(Alumnos);
   } catch (error) {
     console.log("Error", error);
     return res.status(500).json({ message: "Internal server error" });
