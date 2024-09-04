@@ -86,7 +86,7 @@ app.get("/estudiantes", cors(), async (req, res) => {
 });
 
 //POST
-app.post("/authors", async (req, res) => {
+app.post("/authors", cors(), async (req, res) => {
   try {
     const name = req.body?.name;
     const age = req.body?.age;
