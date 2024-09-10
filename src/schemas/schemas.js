@@ -1,12 +1,16 @@
 const mongoose = require("mongoose");
 
-const authorSchema = new mongoose.Schema({
-  name: {
+const cursoSchema = new mongoose.Schema({
+  nombre: {
     type: String,
     required: true,
   },
-  age: {
+  creditos: {
     type: Number,
+    required: true,
+  },
+  descripcion: {
+    type: String,
     required: true,
   },
   createdAt: {
@@ -58,7 +62,7 @@ const alumnosSchema = new mongoose.Schema({
 });
 
 module.exports = {
-  authorSchema,
+  cursoSchema,
   bookSchema,
   alumnosSchema,
 };

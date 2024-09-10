@@ -86,23 +86,23 @@ app.get("/estudiantes", cors(), async (req, res) => {
 });
 
 //POST
-app.post("/authors", cors(), async (req, res) => {
+app.post("/cursos", cors(), async (req, res) => {
   try {
-    const name = req.body?.name;
-    const age = req.body?.age;
+    const nombre = req.body?.nombre;
+    const creditos = req.body?.creditos;
+    const descripcion = req.body?.descripcion;
 
-    if (!name || !age) {
-      return res
-        .status(400)
-        .json({ message: "Bad request, name or age not found" });
+    if (!nombre || !creditos || !descripcion) {
+      return res.status(400).json({ message: "Bad request" });
     }
-    const _authors = new authorModel({
-      name,
-      age,
+    const cursos = new authorModel({
+      nombre,
+      creditos,
+      descripcion,
     });
 
-    const save = await _authors.save();
-    return res.status(201).json({ authors: save });
+    const save = await cursos.save();
+    return res.status(201).json({ Cursos: save });
   } catch (error) {
     console.log("Error", error);
     return res.status(500).json({ message: "Internal server error" });

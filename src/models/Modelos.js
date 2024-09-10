@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const {
-  authorSchema,
+  cursoSchema,
   bookSchema,
   alumnosSchema,
 } = require("../schemas/schemas");
 
-const authorModel = mongoose.model("_Author", authorSchema);
+const authorModel = mongoose.model("cursos", cursoSchema);
 const bookModel = mongoose.model("Book", bookSchema);
 const estudianteModel = mongoose.model("Alumnos_Desa_Web", alumnosSchema);
 
